@@ -3,11 +3,12 @@ package config
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/869413421/chatgpt-web/pkg/logger"
 	"log"
 	"os"
 	"strconv"
 	"sync"
+
+	"github.com/869413421/chatgpt-web/pkg/logger"
 )
 
 // Configuration 项目配置
@@ -26,6 +27,9 @@ type Configuration struct {
 	TopP             float32 `json:"top_p"`
 	PresencePenalty  float32 `json:"presence_penalty"`
 	FrequencyPenalty float32 `json:"frequency_penalty"`
+
+	User     string `json:"user"`
+	Password string `json:"password"`
 }
 
 var config *Configuration

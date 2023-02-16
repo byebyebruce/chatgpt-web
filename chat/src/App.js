@@ -19,7 +19,7 @@ const defaultQuickReplies = [
 const initialMessages = [
     {
         type: 'text',
-        content: {text: '您好，我是AI助理，开源于：https://github.com/869413421/chatgpt-web。'},
+        content: {text: '您好，我是AI助理，乐于助人，富有创造力，聪明且非常友好'},
         user: {avatar: '//gitclone.com/download1/gitclone.png'},
     },
 ];
