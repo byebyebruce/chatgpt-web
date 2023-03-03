@@ -42,7 +42,7 @@ func LoadConfig() *Configuration {
 		config = &Configuration{
 			MaxTokens:        60,
 			Port:             8080,
-			Model:            "text-davinci-003",
+			Model:            "gpt-3.5-turbo-0301",
 			Temperature:      0.9,
 			TopP:             1,
 			FrequencyPenalty: 0.0,
@@ -73,6 +73,7 @@ func LoadConfig() *Configuration {
 		TopP := os.Getenv("TOP_P")
 		FrequencyPenalty := os.Getenv("FREQ")
 		PresencePenalty := os.Getenv("PRES")
+		BotDesc := os.Getenv("BOT_DESC")
 		if ApiKey != "" {
 			config.ApiKey = ApiKey
 		}
@@ -80,6 +81,11 @@ func LoadConfig() *Configuration {
 		if Model != "" {
 			config.Model = Model
 		}
+
+		if BotDesc != "" {
+			config.BotDesc = BotDesc
+		}
+
 
 		if MaxTokens != "" {
 			max, err := strconv.Atoi(MaxTokens)
