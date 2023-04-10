@@ -2,12 +2,13 @@ package controllers
 
 import (
 	"context"
-	"github.com/869413421/chatgpt-web/pkg/types"
 	"net"
 	"net/http"
 	"net/url"
 	"strings"
 	"time"
+
+	"github.com/869413421/chatgpt-web/pkg/types"
 
 	gogpt "github.com/sashabaranov/go-openai"
 	"golang.org/x/net/proxy"
@@ -81,6 +82,12 @@ func (c *ChatController) Completion(ctx *gin.Context) {
 	// 自定义gptConfig.BaseURL
 	if cnf.ApiURL != "" {
 		gptConfig.BaseURL = cnf.ApiURL
+	}
+
+	if len(cnf.AzureApiVersion) > 0 {
+		gptConfig.APIType = gogpt.APITypeAzure
+		gptConfig.APIVersion = cnf.AzureApiVersion
+		gptConfig.Engine = cnf.AzureEngine
 	}
 
 	client := gogpt.NewClientWithConfig(gptConfig)

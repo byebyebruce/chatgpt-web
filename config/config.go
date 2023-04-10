@@ -17,6 +17,10 @@ type Configuration struct {
 	ApiKey string `json:"api_key"`
 	// openai提供的接口 空字符串使用默认接口
 	ApiURL string `json:"api_url"`
+	// AzureApiVersion azure api version(eg. 2023-03-15-preview)
+	AzureApiVersion string `json:"azure_api_version"`
+	// AzureEngine azure api engine(eg. gpt-35-turbo)
+	AzureEngine string `json:"azure_engine"`
 	// 服务端口
 	Port int `json:"port"`
 	// 监听接口
